@@ -1,0 +1,38 @@
+public class Homework 7 {
+    public static void main(String[] args) {
+        if(check(101,102)) System.out.println(" the equipment works proper");
+        else System.out.println(" the equipment does not work proper");
+
+    }
+    public static boolean check(int temp1, int temp2){
+        if (temp1>100 && temp2<100) return true;
+        else return false;
+    }
+
+}
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter your balance: ");
+        int balance = scanner.nextInt();
+        int count = 0;
+        while (balance>0){
+            int withdraw = currentBalance (balance);
+            balance = balance-withdraw;
+            count++;
+        }
+        System.out.println("You'll need "+count+" days to withdraw all your money");
+    }
+    public static int currentBalance (int balance){
+        int maximumAmount = 1;
+        for (int i=balance/2;i>1;i--){
+            if (balance%i==0){
+                maximumAmount = i;
+                break;
+            }
+        }
+        return maximumAmount;
+    }
+}
